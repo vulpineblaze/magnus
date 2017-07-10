@@ -16,8 +16,9 @@ html {
 }
 
 .img_container {
-    max-width: 300px;
-    max-height: 200px;	
+    max-width: 400px;
+    max-height: 400px;
+	float: left;
 }
 
 img {
