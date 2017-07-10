@@ -34,24 +34,13 @@ module.exports = function(app, passport, db) {
   // })
 
 
-  app.get('/campaign-:guid', (req, res, next) => {
-    var db_user="";
-    var req_user="";
-    var auth = checkAuth(req,res,next,db, function (a, user) {
-      console.log("inside,a:"+a+ " user:"+user);
+  app.get('/server-:guid', (req, res, next) => {
 
-      auth = a;
-    });
-    db.collection('campaigns').find({guid:req.params.guid}).toArray((err, result) => {
-      var name = result[0].name;
-      db.collection('stars').find({campaign:req.params.guid}).toArray((err, result) => {
-        if (err) return console.log(err)
-        res.render('campaign.ejs', {stars: result, 
-                                    auth:auth, 
-                                    campaign:req.params.guid,
-                                    c_name:name
-                                  })
-      })
+
+    db.collection('linksave').find({server:req.params.guid}).toArray((err, result) => {
+        
+        res.render('campaign.ejs', {result: result})
+  
     })
   })
 
