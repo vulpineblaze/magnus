@@ -56,17 +56,6 @@ html {
     box-sizing: border-box;
 }
 
-.add_left_col {
-    width: 50%;
-    float: left;
-    font-size: 21px;
-    font-weight: bold;
-}
-.add_right_col {
-    width: 50%;
-    float: left;
-}
-
 a.delete_href {
     color: red;
     text-decoration:none;
