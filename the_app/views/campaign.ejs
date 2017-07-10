@@ -18,19 +18,21 @@
 
 
 
-<div id="stars" class="img_container">
+
   <% if (result.length == 0){ %>
     <P> Please add a star</P>
   <% }else{ %>
 
 
     <% for(var i=0; i<result.length; i++) {%>
+    <div id="stars" class="img_container">
         <a href="<%= result[i].link %>">
         <img src="<%= result[i].link %>">
         </a>
+        </div>
     <% } %>
   <% } %>
-</div>
+
 
 
 
