@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Magnus</title>
+  <link rel="stylesheet" href="styles.css">
+
+</head>
+
+
+<body>
+<h1>Magnus Saved Images</h1>
+
+
+
+    
+<div class="line"></div>
+
+
+
+
+  <% if (result.length == 0){ %>
+    <P> Please add a star</P>
+  <% }else{ %>
+    <% for(var i=0; i<result.length; i++) {%>
+    <div id="stars" class="img_container">
+        <a href="<%= result[i].link %>">
+        <img src="<%= result[i].link %>">
+        </a>
+        </div>
+    <% } %>
+  <% } %>
+
+
+
+
+
+
+
+
+</body>
+</html>
