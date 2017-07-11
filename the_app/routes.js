@@ -22,10 +22,10 @@ module.exports = function(app, passport, db) {
   })
 
 
-  app.get('/s:guid/m:suid', (req, res, next) => {
+  app.get('/m:suid', (req, res, next) => {
 
 
-        db.collection('moodtrack').find({server:req.params.guid, user:req.params.suid}).toArray((err, result) => {
+        db.collection('moodtrack').find({user:req.params.suid}).toArray((err, result) => {
           if (err) return console.log(err)
           res.render('moodtrack.ejs', {result: result})
         })
