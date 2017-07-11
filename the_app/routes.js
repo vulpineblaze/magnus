@@ -22,7 +22,7 @@ module.exports = function(app, passport, db) {
   })
 
 
-  app.get('/campaign-:guid/moodtrack-:suid', (req, res, next) => {
+  app.get('/:guid/:suid', (req, res, next) => {
 
 
         db.collection('moodtrack').find({server:req.params.guid, user:req.params.suid}).toArray((err, result) => {
