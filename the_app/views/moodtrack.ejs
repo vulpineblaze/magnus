@@ -23,10 +23,13 @@
     <P> Please add a star</P>
   <% }else{ %>
     <% for(var i=0; i<result.length; i++) {%>
-    <div id="stars" class="img_container">
-        <a href="<%= result[i].link %>">
-        <img src="<%= result[i].link %>">
-        </a>
+    <div id="stars" class="text_container">
+        <P>
+          Mood:<%= result[i].mood %>
+          Number:<%= result[i].number %>
+          Desc:<%= result[i].desc %>
+        </P>
+        
         </div>
     <% } %>
   <% } %>
