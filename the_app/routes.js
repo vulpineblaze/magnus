@@ -5,37 +5,14 @@ module.exports = function(app, passport, db) {
 
 
   app.get('/', (req, res, next) => {
-    var db_user="";
-    var req_user="";
-    var auth = checkAuth(req,res,next,db, function (a, user) {
-      console.log("inside,a:"+a+ " user:"+user);
-
-      auth = a;
-    });
     
-    console.log("auth:"+auth);
-   
-
-    var the_date = new Date().toISOString().replace(/T.+/, ' ').replace(/\..+/, '');
-    // console.log("the_date:"+the_date);
-    db.collection('campaigns').find().toArray((err, result) => {
-      if (err) return console.log(err)
-      // console.log(result.length);
       res.render('index.ejs', {campaigns: result, auth:auth})
-    })
+
   })
 
-  // app.get('/latest', (req, res, next) => {
-  //   var the_date = new Date().toISOString().replace(/T.+/, ' ').replace(/\..+/, '');
-  //   db.collection('hoa').find({"title" : {"$lte": the_date}}).sort({title: 1}).toArray((err, result) => {
-  //     if (err) return console.log(err)
-  //     res.redirect("/#"+result[result.length-1].title)
-  //   })
-  // })
 
 
   app.get('/server-:guid', (req, res, next) => {
-
 
     db.collection('linksave').find({server:req.params.guid}).toArray((err, result) => {
         
@@ -45,31 +22,24 @@ module.exports = function(app, passport, db) {
   })
 
 
-  app.get('/campaign-:guid/star-:suid', (req, res, next) => {
-    var db_user="";
-    var req_user="";
-    var auth = checkAuth(req,res,next,db, function (a, user) {
-      console.log("inside,a:"+a+ " user:"+user);
+  app.get('/campaign-:guid/moodtrack-:suid', (req, res, next) => {
 
-      auth = a;
-    });
 
-    db.collection('star_msg').find({star:req.params.suid}).toArray((err, msgs) => {
-
-      db.collection('stars').find({guid:req.params.suid}).toArray((err, stars) => {
-        var this_star = stars[0];
-        db.collection('planets').find({star:req.params.suid}).toArray((err, result) => {
+        db.collection('moodtrack').find({server:req.params.guid, user:req.params.suid}).toArray((err, result) => {
           if (err) return console.log(err)
-          res.render('star.ejs', {planets: result, 
-                                  auth:auth, 
-                                  msgs:msgs, 
-                                  campaign:req.params.guid,
-                                  this_star:this_star})
+          res.render('moodtrack.ejs', {result: result})
         })
-      })
-    })
+
   })
 
+  
+  
+  
+  
+  
+  
+  
+  
   app.get('/campaign-:guid/star-:suid/planet-:puid', (req, res, next) => {
     var db_user="";
     var req_user="";
