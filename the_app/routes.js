@@ -293,7 +293,7 @@ module.exports = function(app, passport, db) {
   // })
 
   app.get('/delete-:guid', (req, res) => {
-    db.collection('hoa').findOneAndDelete({guid: req.params.guid}, (err, result) => {
+    db.collection('moodtrack').findOneAndDelete({_id: req.params.guid}, (err, result) => {
       if (err) return res.send(500, err)
       res.redirect('/')
     })
