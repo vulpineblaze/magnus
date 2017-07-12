@@ -1,5 +1,6 @@
 const crypto = require("crypto");
 const gen = require("./generator.js");
+var ObjectId = require('mongodb').ObjectID;
 
 module.exports = function(app, passport, db) {
 
