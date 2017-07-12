@@ -23,7 +23,7 @@
     <P> Please add a star</P>
   <% }else{ %>
     <% for(var i=0; i<result.length; i++) {%>
-    <div id="stars" class="text_container">
+    <div id="<%= result[i].id %>" class="text_container">
         <P>
           Timestamp:<%= result[i].timestamp %>
           Mood:<%= result[i].mood %>
