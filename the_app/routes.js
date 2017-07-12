@@ -292,10 +292,10 @@ module.exports = function(app, passport, db) {
   //   })
   // })
 
-  app.get('/delete-:guid', (req, res) => {
+  app.get('/delete-:guid-:user', (req, res) => {
     db.collection('moodtrack').findOneAndDelete({_id: req.params.guid}, (err, result) => {
       if (err) return res.send(500, err)
-      res.redirect('/m'+result.user)
+      res.redirect('/m'+req.params.user)
     })
   })
 
