@@ -6,7 +6,7 @@ module.exports = function(app, passport, db) {
 
   app.get('/', (req, res, next) => {
     
-      res.render('index.ejs', {campaigns: result, auth:auth})
+      res.render('index.ejs')
 
   })
 
@@ -295,7 +295,7 @@ module.exports = function(app, passport, db) {
   app.get('/delete-:guid', (req, res) => {
     db.collection('moodtrack').findOneAndDelete({_id: req.params.guid}, (err, result) => {
       if (err) return res.send(500, err)
-      res.redirect('/')
+      res.redirect('/m'+result.user)
     })
   })
 
