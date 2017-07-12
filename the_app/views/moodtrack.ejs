@@ -24,11 +24,11 @@
   <% }else{ %>
     <% for(var i=0; i<result.length; i++) {%>
     <div id="<%= result[i]._id %>" class="text_container">
+        <h3>
+          <%= result[i].mood %> : <%= result[i].number %> @ <%= result[i].timestamp %>
+        </h3>
         <P>
-          Timestamp:<%= result[i].timestamp %>
-          Mood:<%= result[i].mood %>
-          Number:<%= result[i].number %>
-          Desc:<%= result[i].desc %>
+           <%= result[i].desc %>
         </P>
         <a class="delete_href" href="delete-<%= result[i]._id %>-<%= result[i].user %>">[X]</a>
         </div>
