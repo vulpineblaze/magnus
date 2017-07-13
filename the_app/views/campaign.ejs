@@ -4,7 +4,16 @@
   <meta charset="UTF-8">
   <title>Magnus</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="jquery.easyPaginate.js"></script>
 
+<script>
+  $('#easyPaginate').easyPaginate({
+    paginateElement: 'div',
+    elementsPerPage: 6,
+    effect: 'default'
+  });
+</script>
 </head>
 
 
@@ -22,15 +31,15 @@
   <% if (result.length == 0){ %>
     <P> Please add a star</P>
   <% }else{ %>
-
-
-    <% for(var i=0; i<result.length; i++) {%>
-    <div id="stars" class="img_container">
-        <a href="<%= result[i].link %>">
-        <img src="<%= result[i].link %>">
-        </a>
-        </div>
-    <% } %>
+      <div id="easyPaginate">
+        <% for(var i=0; i<result.length; i++) {%>
+          <div id="stars" class="img_container">
+            <a href="<%= result[i].link %>">
+            <img src="<%= result[i].link %>">
+            </a>
+          </div>
+        <% } %>
+     </div>
   <% } %>
 
 
