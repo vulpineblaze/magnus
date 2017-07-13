@@ -23,7 +23,7 @@
     <P> Please add a star</P>
   <% }else{ %>
       <div id="easyPaginate">
-        <% for(var i=0; i<result.length; i++) {%>
+        <% for(var i=result.length-1; i>0; i--) {%>
           <div class="img_container">
             <a href="<%= result[i].link %>">
             <img src="<%= result[i].link %>">
