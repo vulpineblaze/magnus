@@ -7,13 +7,13 @@
   <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="jquery.easyPaginate.js"></script>
 
-<script>
+<pre class="javascript">
   $('#easyPaginate').easyPaginate({
-    paginateElement: 'a',
-    elementsPerPage: 6,
+    paginateElement: 'div',
+    elementsPerPage: 3,
     effect: 'climb'
   });
-</script>
+</pre>
 </head>
 
 
@@ -33,14 +33,11 @@
   <% }else{ %>
       <div id="easyPaginate">
         <% for(var i=0; i<result.length; i++) {%>
-          <!-- <div id="stars" class="img_container">
+          <div class="img_container">
             <a href="<%= result[i].link %>">
             <img src="<%= result[i].link %>">
             </a>
-          </div> -->
-            <a href="<%= result[i].link %>">
-            <img src="<%= result[i].link %>">
-            </a>
+          </div> 
         <% } %>
      </div>
   <% } %>
