@@ -9,9 +9,9 @@
 
 <script>
   $('#easyPaginate').easyPaginate({
-    paginateElement: 'div',
+    paginateElement: 'a',
     elementsPerPage: 6,
-    effect: 'default'
+    effect: 'climb'
   });
 </script>
 </head>
@@ -33,11 +33,14 @@
   <% }else{ %>
       <div id="easyPaginate">
         <% for(var i=0; i<result.length; i++) {%>
-          <div id="stars" class="img_container">
+          <!-- <div id="stars" class="img_container">
             <a href="<%= result[i].link %>">
             <img src="<%= result[i].link %>">
             </a>
-          </div>
+          </div> -->
+            <a href="<%= result[i].link %>">
+            <img src="<%= result[i].link %>">
+            </a>
         <% } %>
      </div>
   <% } %>
